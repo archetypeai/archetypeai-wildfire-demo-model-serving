@@ -1,0 +1,12 @@
+@import "@archetypeai/ds-lib-tokens/theme.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Geist and Geist Mono (SIL Open Font License 1.1) instead of the design
+   system's PP Neue Montreal, whose files can't be redistributed. */
+@theme {
+	--font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
+	--font-mono: 'Geist Mono Variable', 'Courier New', monospace;
+}
