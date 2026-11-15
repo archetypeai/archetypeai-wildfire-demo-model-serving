@@ -6,7 +6,7 @@ All measurements below were taken on production on 2026-11-14.
 
 ## Summary
 
-- **Endpoint:** every call is `POST /api/inference/chat/completions` on `newton-c-2.6`. The Inference API's Direct Query endpoint (`/api/inference/query`) accepts no image events, and it refuses `multi_image`; Chat Completions takes images as `image_url` parts, several per message.
+- **Endpoint:** every call is `POST /api/inference/chat/completions` on `newton-c-2.6`. The Inference API's query endpoint (`/api/inference/query`) refuses still images in every form tried (a `data.base64_img` event, a JPEG in `file_ids`, with `multi_image` or `max_frames`); Chat Completions takes images as `image_url` parts, several per message.
 - **Smaller images reach the model.** The platform gives the model a reduced copy of each frame. Asked to describe a 1920×1080 frame, the model called it "low-resolution, vertically oriented" and missed a mountain range that it described through Direct Query. Neither `detail: "high"`, the Responses API, Newton Fusion 1.0, nor splitting a frame into halves changed this.
 - **Prompt tuned to compensate.** With the original prompt, the smaller frames made the model rate fog, low cloud and night lights as watch or danger. A paragraph in the risk prompt (`RISK_GUIDANCE` in `src/lib/server/newton.js`) brings the per-camera verdicts back close to the Direct Query version's.
 - **Request size:** Chat Completions refuses bodies over about 2 MiB (`413`), which four full-size night frames can pass, so a scan batch closes early when its images would exceed 1.8 MiB.
