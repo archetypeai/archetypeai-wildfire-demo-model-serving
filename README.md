@@ -42,8 +42,8 @@ This is the Inference API version of [archetypeai-wildfire-demo](https://github.
 Requires Node.js 20 or later:
 
 ```bash
-git clone https://github.com/archetypeai/archetypeai-wildfire-demo-model-serving.git
-cd archetypeai-wildfire-demo-model-serving
+git clone https://github.com/archetypeai/archetypeai-wildfire-demo-inference-api.git
+cd archetypeai-wildfire-demo-inference-api
 npm install
 cp .env.example .env      # then add your API key
 ```

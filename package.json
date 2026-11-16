@@ -1,5 +1,5 @@
 {
-	"name": "archetypeai-wildfire-demo-model-serving",
+	"name": "archetypeai-wildfire-demo-inference-api",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
